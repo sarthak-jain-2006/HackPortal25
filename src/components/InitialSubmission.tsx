@@ -12,12 +12,9 @@ interface InitialSubmissionProps {
 
 const InitialSubmission = ({ onBack }: InitialSubmissionProps) => {
   const [formData, setFormData] = useState({
-    teamId: '',
-    userId: '',
     title: '',
     description: '',
-    pptLink: '',
-    jwtToken: ''
+    pptLink: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,40 +67,6 @@ const InitialSubmission = ({ onBack }: InitialSubmissionProps) => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Team ID */}
-            <div>
-              <Label htmlFor="teamId" className="text-primary font-space font-semibold text-sm uppercase tracking-wider">
-                Team ID
-              </Label>
-              <Input
-                id="teamId"
-                type="text"
-                value={formData.teamId}
-                onChange={(e) => handleInputChange('teamId', e.target.value)}
-                className="mt-2 bg-input/50 border-border/50 text-foreground font-space backdrop-blur-sm focus:border-primary focus:ring-primary/20"
-                placeholder="Enter your team ID"
-                required
-              />
-            </div>
-
-            {/* User ID */}
-            <div>
-              <Label htmlFor="userId" className="text-primary font-space font-semibold text-sm uppercase tracking-wider">
-                User ID
-              </Label>
-              <Input
-                id="userId"
-                type="text"
-                value={formData.userId}
-                onChange={(e) => handleInputChange('userId', e.target.value)}
-                className="mt-2 bg-input/50 border-border/50 text-foreground font-space backdrop-blur-sm focus:border-primary focus:ring-primary/20"
-                placeholder="Enter your user ID"
-                required
-              />
-            </div>
-          </div>
-
           {/* Project Title */}
           <div>
             <Label htmlFor="title" className="text-primary font-space font-semibold text-sm uppercase tracking-wider">
@@ -154,21 +117,6 @@ const InitialSubmission = ({ onBack }: InitialSubmissionProps) => {
             </div>
           </div>
 
-          {/* JWT Token */}
-          <div>
-            <Label htmlFor="jwtToken" className="text-accent font-space font-semibold text-sm uppercase tracking-wider">
-              JWT Token
-            </Label>
-            <Input
-              id="jwtToken"
-              type="password"
-              value={formData.jwtToken}
-              onChange={(e) => handleInputChange('jwtToken', e.target.value)}
-              className="mt-2 bg-input/50 border-border/50 text-foreground font-space backdrop-blur-sm focus:border-accent focus:ring-accent/20"
-              placeholder="Enter your JWT token"
-              required
-            />
-          </div>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
